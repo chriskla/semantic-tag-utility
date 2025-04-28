@@ -1,6 +1,33 @@
+"""
+This module provides tools for transforming RDF data and constructing SOSA (Sensor, Observation, Sample, and Actuator) graphs 
+from SysML models using SPARQL queries. It includes functions to parse RDF data, bind namespaces, and execute SPARQL 
+CONSTRUCT queries to extract metadata and connection tags.
+
+Functions:
+----------
+- transform_rdf(api_endpoint, input_model, output_rdf, base_uri, input_ontology, prefix_ontology, prefix_library):
+    Transforms an RDF model by parsing input data, binding namespaces, and constructing SOSA graphs.
+- _construct_sosa(g, base, input_ontology, prefix_ontology, prefix_library):
+    Constructs a SOSA graph by combining metadata and connection tags extracted from the input RDF graph.
+- _extract_metadata_tags(g, base, input_ontology, prefix_ontology, prefix_library):
+    Extracts metadata tags from the RDF graph using a SPARQL CONSTRUCT query.
+- _extract_metadata_tags_ownership(g, base, input_ontology, prefix_ontology, prefix_library):
+    Extracts metadata tags related to ownership relationships from the RDF graph using a SPARQL CONSTRUCT query.
+- _extract_connection_tags(g, base, input_ontology, prefix_ontology, prefix_library):
+    Extracts connection tags from the RDF graph using a SPARQL CONSTRUCT query.
+
+Dependencies:
+-------------
+- rdflib: A Python library for working with RDF data.
+- tools.api_client: A custom module for downloading elements from an API endpoint.
+
+Usage:
+------
+This module is designed to be used as part of a larger system for processing SysML models and generating SOSA graphs.
+"""
+
 import rdflib
 import tools.api_client as api_client
-
 
 def transform_rdf(
     api_endpoint,

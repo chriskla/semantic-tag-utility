@@ -1,3 +1,26 @@
+"""_summary_
+    This module provides utility functions to convert an ontology into a tag-based representation.
+    Functions:
+        _generate_package(package_name, meta_def="", conn_def=""):
+            Generates a package definition string with metadata and connection definitions.
+        _generate_connection_def(name_space, object_properties, meta_prefix=""):
+            Generates connection definitions for object properties in the ontology.
+        _generate_metadata_def(name_space, subject_list, meta_prefix=""):
+            Generates metadata definitions for subjects in the ontology.
+        ontology_to_tag(input_ontology, ontology_prefix, lib_prefix, output_package, package_name):
+            Converts an ontology into a tag-based representation and writes it to a file.
+            Args:
+                input_ontology (str): Path to the input ontology file.
+                ontology_prefix (str): Prefix used in the ontology for classes and properties.
+                lib_prefix (str): Prefix to be used for generated metadata and connection definitions.
+                output_package (str): Path to the output file where the package will be written.
+                package_name (str): Name of the package to be generated.
+                None
+
+    Returns:
+        _type_: _description_
+"""
+
 import rdflib
 from rdflib.namespace import RDF, RDFS, OWL
 

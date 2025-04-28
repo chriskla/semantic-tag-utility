@@ -1,6 +1,22 @@
+"""
+    This module provides utility functions to convert an Abstract Syntax Tree (AST) 
+    representation of entities into JSON-LD format.
+    Functions:
+        _merge(d1, d2):
+            Recursively merges two dictionaries. If both dictionaries have a key 
+            with a dictionary as a value, the function merges those dictionaries 
+            as well. Otherwise, it prioritizes the value from the first dictionary 
+            if it exists, or the second dictionary otherwise.
+        _get_context_for_type(type, metadata_dir):
+            Retrieves the JSON-LD context for a given type from a specified 
+            metadata directory.
+        ast_to_jsonld(input_file, output_file, base_uri, metadata_dir):
+            Converts a JSON file containing AST entities into a JSON-LD file. 
+            Each entity is enriched with its context and a base URI.
+    _summary_
+"""
+
 import json
-
-
 def _merge(d1, d2):
     merged_dict = {}
     for key in set(d1.keys()) | set(d2.keys()):

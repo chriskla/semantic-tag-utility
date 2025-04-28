@@ -1,3 +1,48 @@
+"""__summary_: semantic_tag_utility.tools.api_client
+    
+    This script provides a command-line utility for generating and extracting semantic metadata tags for SysML v2 models. 
+    It supports three main functionalities:
+    1. **gen-library**: Generates a semantic metadata tagging library for SysML v2 from an ontology.
+    2. **gen-jsonld**: Generates a JSON-LD file with the @context information from the SysML v2 metamodel using a SysML v2 AST serialized as JSON.
+    3. **transform-rdf**: Transforms the SysML v2 RDF graph into the target ontology of the semantic metadata tags.
+    Modules:
+    - `tools.ast_to_jsonld`: Handles the conversion of SysML v2 AST to JSON-LD.
+    - `tools.ontology_to_tag`: Handles the generation of tagging libraries from ontologies.
+    - `tools.sparql_queries`: Handles the transformation of RDF graphs using SPARQL queries.
+    Constants:
+    - `METADATA_DIR`: Path to the SysML v2 metamodel JSON-LD files.
+    - `BASE_URI`: Base URI for the RDF graph.
+    - `DEFAULT_ONTOLOGY_NS`: Default namespace for the ontology.
+    - `DEFAULT_PREFIX_ONTOLOGY`: Default prefix for the ontology.
+    - `DEFAULT_PREFIX_LIB`: Default prefix for the generated library.
+    - `DEFAULT_PACKAGE_NAME`: Default name for the generated SysML v2 package.
+    - `DEFAULT_API_URL`: Default API endpoint for retrieving SysML model elements.
+    Command-line Arguments:
+    - `gen-library`:
+        - `--input-ontology-ns`: Ontology namespace for generating the tagging library.
+        - `-o, --output`: Path for the generated library file.
+        - `-po, --prefix-ontology`: Prefix of the ontology.
+        - `-pl, --prefix-library`: Prefix of the generated library.
+        - `-n, --package-name`: Name of the generated SysML v2 package.
+    - `gen-jsonld`:
+        - `-i, --input-ast-file`: Path to the input JSON AST of the SysML v2 model.
+        - `-o, --output-jsonld`: Path to the output JSON-LD file.
+        - `-b, --base-uri`: Base URI for the output RDF graph.
+        - `-m, --metadata-dir`: Path to the SysML v2 metamodel JSON-LD files.
+    - `transform-rdf`:
+        - `--api-endpoint`: URL to the SysML API for retrieving project elements.
+        - `-i, --input-model`: Path to the RDF representation of the SysML model in JSON-LD.
+        - `-o, --output-rdf`: Path to the transformed serialized RDF graph.
+        - `-b, --base-uri`: Base URI for the output RDF graph.
+        - `--input-ontology-ns`: Ontology namespace used by the tagging library.
+        - `-po, --prefix-ontology`: Prefix of the ontology.
+        - `-pl, --prefix-library`: Prefix of the generated library.
+    Usage:
+    Run the script with one of the subcommands (`gen-library`, `gen-jsonld`, or `transform-rdf`) and the appropriate arguments to perform the desired operation.
+    Note:
+    This software is provided "as is" and should not be used in production environments.
+"""
+
 import argparse
 
 import tools.ast_to_jsonld as ast_to_jsonld

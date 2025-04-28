@@ -1,3 +1,27 @@
+"""__summary_: semantic_tag_utility.tools.api_client
+    This module provides utility functions for interacting with a semantic tag API. 
+    It includes functions to retrieve projects, commits, and elements, as well as 
+    download the latest elements from the API.
+    Functions:
+        get_projects(api_url):
+            Retrieves a list of projects from the API, sorted by creation date in descending order.
+        get_commits(projectId, api_url):
+            Retrieves a list of commits for a specific project from the API, sorted by creation date in descending order.
+        get_elements(projectId, commitId, api_url):
+            Retrieves the elements associated with a specific commit of a project from the API.
+        download_latest_elements(api_url):
+            Downloads the elements of the latest commit of the most recently created project 
+            and saves them to a JSON-LD file.
+    Dependencies:
+        - datetime: For handling and formatting date and time.
+        - json: For parsing and serializing JSON data.
+        - os.path: For handling file paths.
+        - requests: For making HTTP requests to the API.
+
+    Returns:
+        _type_: _description_
+"""
+
 import datetime
 import json
 import os.path
